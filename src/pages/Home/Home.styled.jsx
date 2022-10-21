@@ -1,5 +1,13 @@
 import styled from '@emotion/styled';
 
+export const MainTitle = styled.h1`
+  margin-bottom: 30px;
+  text-align: center;
+  font-size: 22px;
+  font-weight: 500;
+  color:${p => `${p.theme.colors.primary}`};
+`;
+
 export const Items = styled.ul`
   padding: 0;
   margin-bottom: 30px;
@@ -34,4 +42,3 @@ export const FilmImg = styled.img`
     transform: scale(1.3);
   }
 `;
-

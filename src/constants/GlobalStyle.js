@@ -10,6 +10,7 @@ export const GlobalStyle = createGlobalStyle`
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 	 background-color: rgba(20, 28, 36, 1);
+	 color: rgba(171, 171, 171, 1);
   }
 
   code {
@@ -17,7 +18,11 @@ export const GlobalStyle = createGlobalStyle`
       monospace;
   }
 
-  h1,h2,h3,h4,h5,h6,p {
+  h1,h2,h3,h4,h5,h6 {
+    margin: 0;
+	 color: rgba(255, 255, 255, 1);
+  }
+  p {
     margin: 0;
   }
 
