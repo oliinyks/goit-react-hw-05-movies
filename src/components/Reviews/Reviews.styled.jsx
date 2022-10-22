@@ -1,12 +1,12 @@
 import styled from '@emotion/styled';
 
 export const ReviewsList = styled.ul`
-margin: 30px 0;
+margin: 30px 0 60px;
 `
 
 export const ReviewsItem = styled.li`
 & + & { 
-	margin-bottom: 30px;
+	margin-top: 30px;
 }`
 
 export const Author = styled.h3`
@@ -19,4 +19,8 @@ export const ReviewContent = styled.p`
 `
 export const Time = styled.p`
 	font-style: italic;
+`
+
+export const Info = styled.p`
+	margin-bottom: 40px;
 `

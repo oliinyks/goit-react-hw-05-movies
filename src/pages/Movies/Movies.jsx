@@ -1,39 +1,22 @@
 import { Outlet } from 'react-router-dom';
 import { MovieDetails } from '../../components/MovieDetails/MovieDetails';
-import {StyledLink} from './Movies.styled'
+import { useParams } from 'react-router-dom';
+import {StyledLink, AddInfo} from './Movies.styled'
+import{SearchForm} from '../../components/SearchForm/SearchForm'
 export const Movies = () => {
+	const { movieId } = useParams();
   return (
-    <>
-      <MovieDetails/>
+    <main>
+	 {movieId && movieId.length > 0 ?
+      <>
+		<MovieDetails/>
+		<AddInfo>Additional information</AddInfo>
       <StyledLink to={"cast"}> Cast </StyledLink>
       <StyledLink to={"reviews"}>Reviews </StyledLink>
       <Outlet />
-    </>
+		</>
+		: <SearchForm/>
+	 }
+    </main>
   );
 };
-
-// // import Select from 'react-select'
-// // import { useState } from 'react';
-// // import {fetchMovie} from '../../api';
-// // import { useEffect } from 'react';
-
-// export const Movies = () => {
-// 	// const[movie, setMovie] = useState([]);
-
-// 	// useEffect(() => {
-// 	// 	try {
-// 	// 		axios.fetchMovie(movie)
-// 	// 			} catch{};
-// 	// }, [movie])
-
-// 	// const selectedMovie = e => {
-// 	// 	setMovie(e.currentTarget.value);
-// 	// }
-
-// 	return(
-// 		<>
-// 		{/* <Select options={movie} onChange={selectedMovie}/> */}
-// 		Movie
-// 		</>
-// 	)
-// }

@@ -1,13 +1,14 @@
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { fetchMovieCast } from '../../api';
-import {Box, CastItem, CastImg, Name } from './Cast.styled';
+import {Box, CastItem, CastImg, Name, NameImfo } from './Cast.styled';
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
+import defaultImg from '../../default.png'
 
 export const Cast = () => {
-  const [movieCast, setMovieCast] = useState(null);
+  const [movieCast, setMovieCast] = useState([]);
   const { movieId } = useParams();
 
   useEffect(() => {
@@ -25,6 +26,13 @@ export const Cast = () => {
 
   if (!movieCast) {
     return;
+  }
+
+  const castImg = profile_path => {
+	if (profile_path === null) {
+		return `${defaultImg}`
+	}
+	return `https://image.tmdb.org/t/p/w500/${profile_path}`
   }
 
   const settings = {
@@ -68,11 +76,13 @@ export const Cast = () => {
         {movieCast.map(({ id, profile_path, name, character }) => (
           <CastItem key={id}>
             <CastImg
-              src={`https://image.tmdb.org/t/p/w500/${profile_path}`}
+              src={`${castImg(profile_path)}`}
               alt="name"
             />
+				<NameImfo>
             <Name>{name}</Name>
             <p>{character}</p>
+				</NameImfo>
           </CastItem>
         ))}
       </Slider>

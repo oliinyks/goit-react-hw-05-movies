@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
 
 export const Box = styled.div`
-margin-bottom: 30px;
+margin-bottom: 40px;
 @media (min-width: 500px) {
 	  display: grid;
 	  grid-gap: 10px;

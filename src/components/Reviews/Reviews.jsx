@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { fetchMovieReviews } from '../../api';
 import { useParams } from 'react-router-dom';
-import {ReviewsList, ReviewsItem, Author, Time, ReviewContent} from './Reviews.styled'
+import {ReviewsList, ReviewsItem, Author, Time, ReviewContent, Info} from './Reviews.styled'
 
 export const Reviews = () => {
 	const [movieReviews, setMovieReviews] = useState([]);
@@ -20,14 +20,9 @@ export const Reviews = () => {
 		fetchData();
 	 }, [movieId]);
 
-	 
-	//  if (!movieReviews) {
-	// 	return;
-	//  }
-
 	return(
 		<>
-		{ movieReviews !== [] ?
+		{ movieReviews.length > 0 ?
 
 			(<ReviewsList>
 			{movieReviews.map(({id, author, content, created_at}) => (
@@ -39,7 +34,7 @@ export const Reviews = () => {
 			))}
 			</ReviewsList>)
 
-				: <p>Sorry, we didn't find anything.</p>
+				: <Info>We don’t have any reviews for this movie</Info>
 		}		
 		</>
 	)
