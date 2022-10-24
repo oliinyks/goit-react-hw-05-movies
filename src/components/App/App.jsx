@@ -4,8 +4,8 @@ import { NotFound } from 'components/NotFound/NotFound';
 import { Reviews } from '../Reviews/Reviews';
 import { SharedLayout } from '../SharedLayout/SharedLayout';
 
-const Home = lazy(() => import("pages/Home"));
-const Movies = lazy(() => import("pages/Movies"));
+const Home = lazy(() => import("../../pages/Home"));
+const Movies = lazy(() => import("../../pages/Movies"));
 const Cast = lazy(() => import("../Cast/Cast"));
 
 export const App = () => {
