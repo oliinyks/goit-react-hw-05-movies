@@ -1,8 +1,9 @@
 import { useState, useEffect } from 'react';
 import { fetchMovieById } from '../../api';
-import { useParams } from 'react-router-dom';
+import { useLocation, useParams } from 'react-router-dom';
 import {
 	Box,
+	StyledLink,
 	MovieInfo,
 	MainTitle,
 	Img,
@@ -17,6 +18,8 @@ import {
 export const MovieDetails = () => {
 	const [selectedMovie, setSelectedMovie] = useState(null);
 	const { movieId } = useParams();
+	const location = useLocation();
+	const backLinkHref = location.state?.from ?? "/movies";
 
 	useEffect(() => {
 		const fetchData = async () => {
@@ -31,7 +34,6 @@ export const MovieDetails = () => {
 		fetchData();
 	 }, [movieId]);
 
-
 	if (!selectedMovie) {
 		return;
 	 }
@@ -39,6 +41,8 @@ export const MovieDetails = () => {
 	const { title, poster_path, vote_average, tagline, overview, genres } = selectedMovie;
 	
 	return(
+		<>
+				<StyledLink to={backLinkHref}>Go back</StyledLink>
 		<Box>
       <div>
         <Img src={`https://image.tmdb.org/t/p/w500/${poster_path}`} />
@@ -61,5 +65,6 @@ export const MovieDetails = () => {
         <p>{overview}</p>
       </MovieInfo>
     </Box>
+		</>
 	)
 }

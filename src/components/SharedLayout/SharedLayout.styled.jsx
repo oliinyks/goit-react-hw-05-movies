@@ -2,6 +2,10 @@ import styled from '@emotion/styled';
 import { NavLink } from 'react-router-dom';
 import { GiFilmSpool } from 'react-icons/gi';
 
+export const Container = styled.div`
+	padding: 0 50px;
+	min-height: calc(100vh - 60px);
+`
 export const Header = styled.header``
 
 export const Nav = styled.nav`
@@ -13,15 +17,15 @@ align-items: center;
 export const StyledLink = styled(NavLink)`
   color:${p => `${p.theme.colors.primary}`};
   text-decoration: none;
-  & + & {
-	margin-left: 20px;
-  }
   &.active{
-	color: ${p => `${p.theme.colors.accent}`};
-  }
-  :hover, :focus{
-	color: ${p => `${p.theme.colors.accent}`};
-  }
+	  color: ${p => `${p.theme.colors.accent}`};
+	}
+	:hover, :focus{
+		color: ${p => `${p.theme.colors.accent}`};
+	}
+	& + & {
+	 margin-left: 20px;
+	}
 `;
 
 export const FilmIco = styled(GiFilmSpool)`

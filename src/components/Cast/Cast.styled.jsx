@@ -23,3 +23,7 @@ export const Name = styled.h3`
   font-size: 18px;
   font-weight: 400px;
 `;
+
+export const Info = styled.p`
+	margin: 0 40px 0 -30px;
+`
