@@ -21,7 +21,7 @@ export const SharedLayout = () => {
             <StyledLink to="/">
               <FilmIco size={50} />
             </StyledLink>
-            <StyledLink to="/">Home</StyledLink>
+            <StyledLink to="/" end>Home</StyledLink>
             <StyledLink to="/movies">Movies</StyledLink>
           </Nav>
         </Header>
