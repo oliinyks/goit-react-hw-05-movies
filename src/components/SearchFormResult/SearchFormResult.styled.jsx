@@ -2,7 +2,7 @@ import styled from '@emotion/styled';
 import { NavLink } from 'react-router-dom';
 
 export const MovieTitle = styled.h2`
-font-size: 18px;
+  font-size: 18px;
   text-align: center;
   color: ${p => `${p.theme.colors.secondary}`};
   margin-bottom: 10px;

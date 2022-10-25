@@ -26,16 +26,16 @@ export const MainTitle = styled.h1`
 `;
 
 export const Form = styled.form`
-margin-bottom: 50px;
-	text-align: center;
-`
+  margin-bottom: 50px;
+  text-align: center;
+`;
 
 export const Input = styled.input`
-	padding: 15px 10px;
-	width: 50%;
-	border-radius: 8px;
-	border: 1px solid white;
-`
+  padding: 15px 10px;
+  width: 50%;
+  border-radius: 8px;
+  border: 1px solid white;
+`;
 
 export const Button = styled.button`
   display: inline-block;

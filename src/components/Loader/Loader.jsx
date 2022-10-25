@@ -1,5 +1,5 @@
 import React from 'react';
-import {Loading, Spinner} from './Loader.styled';
+import { Loading, Spinner } from './Loader.styled';
 
 export const Loader = () => {
   return (
@@ -7,4 +7,4 @@ export const Loader = () => {
       <Spinner></Spinner>
     </Loading>
   );
-}
+};

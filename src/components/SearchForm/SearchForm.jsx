@@ -4,7 +4,13 @@ import { useSearchParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { Loader } from 'components/Loader/Loader';
 import { SearchFormResult } from '../SearchFormResult/SearchFormResult';
-import { MainTitle, Button, Form, Input, StyledLink } from './SearchForm.styled';
+import {
+  MainTitle,
+  Button,
+  Form,
+  Input,
+  StyledLink,
+} from './SearchForm.styled';
 
 export const SearchForm = () => {
   const [movie, setMovie] = useState([]);
@@ -19,11 +25,11 @@ export const SearchForm = () => {
   }, [filter]);
 
   useEffect(() => {
-	if(filter){
-		fetchMovie()
-	}
-	 // eslint-disable-next-line react-hooks/exhaustive-deps
-  },[])
+    if (filter) {
+      fetchMovie();
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const selectedMovie = e => {
     const value = e.currentTarget.value;
@@ -40,7 +46,7 @@ export const SearchForm = () => {
     setLoader(false);
   };
 
-  const fetchMovie = async() => {
+  const fetchMovie = async () => {
     try {
       const reviews = await fetchMovieByName(filter);
       setMovie(reviews.results);
@@ -54,7 +60,7 @@ export const SearchForm = () => {
 
   return (
     <>
-	 <StyledLink to="/">Go back</StyledLink>
+      <StyledLink to="/">Go back</StyledLink>
 
       <MainTitle>Find a movie</MainTitle>
 

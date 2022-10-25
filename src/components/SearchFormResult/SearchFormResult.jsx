@@ -1,4 +1,5 @@
 import defaultImg from '../../default.png';
+import PropTypes from 'prop-types';
 import { useLocation, Outlet } from 'react-router-dom';
 import {
   StyledLink,
@@ -33,4 +34,14 @@ export const SearchFormResult = ({ movie }) => {
       </Items>
     </>
   );
+};
+
+SearchFormResult.propTypes = {
+  movie: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number.isRequired,
+      poster_path: PropTypes.string,
+      title: PropTypes.string.isRequired,
+    })
+  ).isRequired,
 };

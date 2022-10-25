@@ -6,6 +6,7 @@ import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import defaultImg from '../../default.png';
+import PropTypes from 'prop-types';
 
 const Cast = () => {
   const [movieCast, setMovieCast] = useState([]);
@@ -89,6 +90,10 @@ const Cast = () => {
       )}
     </Box>
   );
+};
+
+Cast.propTypes = {
+  movieId: PropTypes.string.isRequired,
 };
 
 export default Cast;

@@ -5,7 +5,7 @@ export const MainTitle = styled.h1`
   text-align: center;
   font-size: 22px;
   font-weight: 500;
-  color:${p => `${p.theme.colors.primary}`};
+  color: ${p => `${p.theme.colors.primary}`};
 `;
 
 export const Items = styled.ul`

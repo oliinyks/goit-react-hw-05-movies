@@ -1,4 +1,5 @@
 import { Outlet } from 'react-router-dom';
+import { Suspense } from 'react';
 import {
   Container,
   Header,
@@ -24,11 +25,13 @@ export const SharedLayout = () => {
             <StyledLink to="/movies">Movies</StyledLink>
           </Nav>
         </Header>
-        <Outlet />
+        <Suspense>
+          <Outlet />
+        </Suspense>
         <GlobalStyle />
       </Container>
       <Footer />
-		<ToastContainer theme="dark" autoClose={3000} />
+      <ToastContainer theme="dark" autoClose={3000} />
     </>
   );
 };

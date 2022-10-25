@@ -25,5 +25,5 @@ export const Name = styled.h3`
 `;
 
 export const Info = styled.p`
-	margin: 0 40px 0 -30px;
-`
+  margin: 0 40px 0 -30px;
+`;
