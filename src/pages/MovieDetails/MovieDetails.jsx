@@ -1,10 +1,11 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, Suspense } from 'react';
+import { useLocation, useParams, Outlet } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { fetchMovieById } from '../../api';
-import { useLocation, useParams } from 'react-router-dom';
 import defaultImg from '../../default.png';
 import {
   Box,
+  StyledLinkBack,
   StyledLink,
   MovieInfo,
   MainTitle,
@@ -14,13 +15,14 @@ import {
   Genres,
   GenresList,
   Overview,
+  AddInfo
 } from './MovieDetails.styled';
 
-export const MovieDetails = () => {
+const MovieDetails = () => {
   const [selectedMovie, setSelectedMovie] = useState(null);
   const { movieId } = useParams();
   const location = useLocation();
-  const backLinkHref = location.state?.from ?? '/movies';
+  const backLinkHref = location.state?.from ?? '/';
 
   useEffect(() => {
     const fetchData = async () => {
@@ -51,7 +53,7 @@ export const MovieDetails = () => {
 
   return (
     <>
-      <StyledLink to={backLinkHref}>Go back</StyledLink>
+      <StyledLinkBack to={backLinkHref}>Go back</StyledLinkBack>
       <Box>
         <div>
           <Img src={`${movieImg(poster_path)}`} alt="title" />
@@ -74,6 +76,13 @@ export const MovieDetails = () => {
           <p>{overview}</p>
         </MovieInfo>
       </Box>
+
+		<AddInfo>Additional information</AddInfo>
+          <StyledLink to='cast' state={{from: backLinkHref}}> Cast </StyledLink>
+          <StyledLink to='reviews' state={{from: backLinkHref}}>Reviews </StyledLink>
+          <Suspense fallback={null}>
+            <Outlet />
+          </Suspense>
     </>
   );
 };
@@ -81,3 +90,5 @@ export const MovieDetails = () => {
 MovieDetails.propTypes = {
   movieId: PropTypes.string.isRequired,
 };
+
+export default MovieDetails;
