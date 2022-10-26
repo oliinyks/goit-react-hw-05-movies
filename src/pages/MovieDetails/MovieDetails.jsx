@@ -3,6 +3,7 @@ import { useLocation, useParams, Outlet } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { fetchMovieById } from '../../api';
 import defaultImg from '../../default.png';
+import { Loader } from 'components/Loader/Loader';
 import {
   Box,
   StyledLinkBack,
@@ -20,15 +21,18 @@ import {
 
 const MovieDetails = () => {
   const [selectedMovie, setSelectedMovie] = useState(null);
+  const [loader, setLoader] = useState(false);
   const { movieId } = useParams();
   const location = useLocation();
   const backLinkHref = location.state?.from ?? '/';
 
   useEffect(() => {
+	setLoader(true);
     const fetchData = async () => {
       try {
         const movie = await fetchMovieById(movieId);
         setSelectedMovie(movie);
+		  setLoader(false);
       } catch (error) {
         new Error();
       }
@@ -83,6 +87,7 @@ const MovieDetails = () => {
           <Suspense fallback={null}>
             <Outlet />
           </Suspense>
+			 {loader && <Loader />}
     </>
   );
 };
