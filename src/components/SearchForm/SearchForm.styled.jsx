@@ -31,16 +31,20 @@ export const Form = styled.form`
 `;
 
 export const Input = styled.input`
+  margin-bottom: 10px;
   padding: 15px 10px;
-  width: 50%;
+  width: 100%;
   border-radius: 8px;
   border: 1px solid white;
+  @media (min-width: 700px) {
+    margin-bottom: 0px;
+    width: 50%;
+  }
 `;
 
 export const Button = styled.button`
   display: inline-block;
   padding: 15px 40px;
-  margin-left: 5px;
   background: ${p => `${p.theme.colors.background}`};
   color: ${p => `${p.theme.colors.primary}`};
   position: relative;
@@ -50,5 +54,8 @@ export const Button = styled.button`
   &:hover {
     background: ${p => `${p.theme.colors.primary}`};
     color: ${p => `${p.theme.colors.background}`};
+  }
+  @media (min-width: 700px) {
+    margin-left: 5px;
   }
 `;
